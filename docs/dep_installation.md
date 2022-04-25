@@ -47,4 +47,5 @@ If the installation was successful, this should be recognised by Unreal Engine's
 
 ## Set up Oculus Quest 2
 __1.__ Follow [this document](https://support.oculus.com/articles/headsets-and-accessories/oculus-link/connect-link-with-quest-2/) to enable Oculus Link.
+
 __2.__ Follow [this blog](https://developer.oculus.com/blog/openxr-for-oculus/) to set up OpenXR for Oculus.

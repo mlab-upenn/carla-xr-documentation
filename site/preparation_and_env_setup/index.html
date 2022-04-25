@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Preparation and Environment Setup - CARLA XR Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Preparation and Environment Setup";
+        var mkdocs_page_input_path = "preparation_and_env_setup.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARLA XR Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dep_installation/">Dependencies Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../run_simulation/">Run XR Simulation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">XR Implementations</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Preparation and Environment Setup</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vr_cam_attachment/">VR Camera Attachment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vel_mesh_render_n_collision/">Vehicle Mesh Rendering and Collision</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../anim_n_interact/">Animation and User Interaction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mr/">Mixed Reality</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARLA XR Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>XR Implementations &raquo;</li><li>Preparation and Environment Setup</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/mlab-upenn/carla-xr-documentation/edit/master/docs/preparation_and_env_setup.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="preparation-and-environment-setup">Preparation and Environment Setup</h1>
+<p>To prepare for the development, both CARLA and OpenXR need to be set up properly. For setting up CARLA, two major components, the source code of CARLA and a fork of Unreal Engine (UE) by the team of CARLA are required. Since CARLA uses a fork of UE 4.26 rather than the stock UE, the engine was cloned from the engine GitHub repository from CARLA and built using Visual Studio 2019, Windows 8.1 SDK, x64 Visual C++ Toolset, and .NET framework 4.6.2. The source project of CARLA was cloned from the simulator GitHub repository from CARLA. Due to the enormous size of the project, GitHub cannot host assets. They were downloaded separately using a batch script provided by the repository. Finally, the client PythonAPI and the server of CARLA were compiled using the x64 Native Tools Command Prompt.</p>
+<p>For setting up OpenXR, the OpenXR plugin should be enabled inside the CARLA project first. The Oculus app was downloaded and installed to enable Oculus Link, which can use the standalone VR headset as a desktop VR headset. Then, the Oculus app was allowed to install from Unknown Sources and enrolled in the Public Test Channel, and the OpenXR runtime for Oculus was installed. Finally, the Oculus OpenXR runtime was added to the Environment Variables. In this way, if the project is required to use another headset in the future, it can be easily set up by just replacing the path in the Environment Variables.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../run_simulation/" class="btn btn-neutral float-left" title="Run XR Simulation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../vr_cam_attachment/" class="btn btn-neutral float-right" title="VR Camera Attachment">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/mlab-upenn/carla-xr-documentation" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../run_simulation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../vr_cam_attachment/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

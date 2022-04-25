@@ -1,0 +1,16 @@
+site_name: CARLA XR Documentation
+repo_url: https://github.com/mlab-upenn/carla-xr-documentation
+docs_dir: docs
+theme: readthedocs
+
+nav:
+- Home: 'index.md'
+- Getting Started:
+  - 'Dependencies Installation': 'dep_installation.md'
+  - 'Run XR Simulation': 'run_simulation.md'
+- XR Implementations:
+  - 'Preparation and Environment Setup': 'preparation_and_env_setup.md'
+  - 'VR Camera Attachment': 'vr_cam_attachment.md'
+  - 'Vehicle Mesh Rendering and Collision': 'vel_mesh_render_n_collision.md'
+  - 'Animation and User Interaction': 'anim_n_interact.md'
+  - 'Mixed Reality': 'mr.md'

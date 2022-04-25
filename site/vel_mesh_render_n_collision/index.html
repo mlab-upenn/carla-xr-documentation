@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Vehicle Mesh Rendering and Collision - CARLA XR Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Vehicle Mesh Rendering and Collision";
+        var mkdocs_page_input_path = "vel_mesh_render_n_collision.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CARLA XR Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting Started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dep_installation/">Dependencies Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../run_simulation/">Run XR Simulation</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">XR Implementations</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../preparation_and_env_setup/">Preparation and Environment Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../vr_cam_attachment/">VR Camera Attachment</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Vehicle Mesh Rendering and Collision</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../anim_n_interact/">Animation and User Interaction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mr/">Mixed Reality</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CARLA XR Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>XR Implementations &raquo;</li><li>Vehicle Mesh Rendering and Collision</li>
+    <li class="wy-breadcrumbs-aside">
+        <a href="https://github.com/mlab-upenn/carla-xr-documentation/edit/master/docs/vel_mesh_render_n_collision.md"
+          class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="vehicle-mesh-rendering-and-collision">Vehicle Mesh Rendering and Collision</h1>
+<p>CARLA is designed primarily for autonomous driving research and used in third-person perspective, bird`s-eye view, or even without rendering. Therefore, the vehicle meshes and textures that come with CARLA have a low Level of Detail (LOD). To extend it as a VR application, a high LOD vehicle model should be imported and adjusted to be suitable in the CARLA environment.</p>
+<p>After searching and comparison on a variety of models from Unreal Marketplace and TurboSquid, an Audi A6 model from the Car Configurator project, which is licensed for free to use when working with Unreal Engine, developed by Epic Games and Audi was chosen. The model was extracted from the Car Configurator project after cleaning irrelevant Blueprint nodes inside the Car Configurator project. </p>
+<p><img alt="AutoAttachedCamera" src="../img/carconfigurator.png" /></p>
+<p>Unlike the Car Configurator project, it is unnecessary and unable for users of a VR autonomous driving simulator to see some components for functionalities, such as the engine and machine for the retractable top. Keeping them would consume much computational power as more polygons need to be rendered at every frame, which is amplified when using stereo rendering per frame in VR. Therefore, imperceptible components in VR were removed before importing the model to CARLA.</p>
+<p><img alt="Deleted Component" src="../img/deleted_component.png" /></p>
+<p>CARLA stores vehicles as Blueprint classes. Each vehicle Blueprint contains a set of sensors for autonomous driving, and each four-wheeled vehicle was rigged with the same base skeleton. To avoid potential conflicts between mesh and skeleton when rigging and incompatibilities between mesh and sensor Blueprint, the vehicle mesh rendering and collision were handled separately. </p>
+<p>Because Audi A6, the model extracted from the Car Configurator, and Tesla Model 3, a vehicle Blueprint class already inside the CARLA project, has roughly the same dimension and hitbox both visually and physically, the Tesla Model 3 Blueprint was chosen to be responsible for handling collision. The initialization procedures were also programmed in the AutoAttachedCamera Blueprint. When a player-controlled Tesla Model 3 is spawned, besides repositioning the VR camera, the AutoAttachedCamera Blueprint also disables the mesh rendering of the low LOD Tesla Model 3, spawns the high LOD Audi A6, and disables its collider. This method can not only avoid the potential conflicts among mesh, skeleton, and Blueprint sensors but also can optimize the performance by showing the high-fidelity model and calculating the collisions using considerably fewer polygons.</p>
+<p><img alt="Audi Tesla Dimension" src="../img/audi_tesla_dim.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../vr_cam_attachment/" class="btn btn-neutral float-left" title="VR Camera Attachment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../anim_n_interact/" class="btn btn-neutral float-right" title="Animation and User Interaction">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/mlab-upenn/carla-xr-documentation" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../vr_cam_attachment/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../anim_n_interact/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

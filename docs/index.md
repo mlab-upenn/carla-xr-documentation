@@ -27,5 +27,3 @@ This section contains the technical details for implementing XR functionalities 
 * [Car Configurator](https://www.unrealengine.com/marketplace/en-US/product/automotive-configurator-01)
 * [VaRest](https://github.com/ufna/VaRest)
 * [Spout](https://leadedge.github.io/)
-
-## Test Section

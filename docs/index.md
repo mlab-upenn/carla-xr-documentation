@@ -30,3 +30,6 @@ This section contains the technical details for implementing XR functionalities 
 
 ## TEST
 This is a test section
+
+## TEST2
+This is another test function

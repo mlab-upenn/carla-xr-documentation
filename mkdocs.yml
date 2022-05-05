@@ -8,6 +8,7 @@ nav:
 - Getting Started:
   - 'Dependencies Installation': 'dep_installation.md'
   - 'Run XR Simulation': 'run_simulation.md'
+  - 'Host and Client on Two Machines': 'host_client_config.md'
 - XR Implementations:
   - 'Preparation and Environment Setup': 'preparation_and_env_setup.md'
   - 'VR Camera Attachment': 'vr_cam_attachment.md'

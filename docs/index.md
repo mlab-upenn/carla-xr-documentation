@@ -10,6 +10,7 @@ This section contains guidance for setting up the software environment and run t
 
 [__Dependencies Installation__](dep_installation.md) — Install the CARLA fork of Unreal Engine 4.26 and other dependencies. <br>
 [__Run XR Simulation__](run_simulation.md) — Procedures to run the simulation in XR. <br>
+[__Host and Client on Two Machines__](host_client_config.md) — Configuring host and client to run on seperate machines
 
 ## XR Implementations
 This section contains the technical details for implementing XR functionalities to CARLA. Information in this section might be helpful for future development.
@@ -27,9 +28,3 @@ This section contains the technical details for implementing XR functionalities 
 * [Car Configurator](https://www.unrealengine.com/marketplace/en-US/product/automotive-configurator-01)
 * [VaRest](https://github.com/ufna/VaRest)
 * [Spout](https://leadedge.github.io/)
-
-## TEST
-This is a test section
-
-## TEST2
-This is another test function

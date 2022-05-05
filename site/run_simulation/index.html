@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Run XR Simulation - CARLA XR Documentation</title>
+    <title>Running XR Simulation - CARLA XR Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Run XR Simulation";
+        var mkdocs_page_name = "Running XR Simulation";
         var mkdocs_page_input_path = "run_simulation.md";
         var mkdocs_page_url = null;
       </script>
@@ -48,7 +48,7 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../dep_installation/">Dependencies Installation</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Run XR Simulation</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Running XR Simulation</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#set-up-the-oculus-headset">Set up the Oculus Headset</a>
     </li>
@@ -64,7 +64,7 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../host_client_config/">Host and Client on Two Machines</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../server_client_config/">Server and Client on Two Machines</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">XR Implementations</span></p>
@@ -94,7 +94,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Getting Started &raquo;</li><li>Run XR Simulation</li>
+          <li>Getting Started &raquo;</li><li>Running XR Simulation</li>
     <li class="wy-breadcrumbs-aside">
         <a href="https://github.com/mlab-upenn/carla-xr-documentation/edit/master/docs/run_simulation.md"
           class="icon icon-github"> Edit on GitHub</a>
@@ -122,14 +122,14 @@
 <strong>5.</strong> The first time you play the simulation, UE4 will show a white screen for a few minutes.</p>
 <h3 id="set-up-g29-wheel-server-optional">Set up G29 Wheel Server (Optional)</h3>
 <p>This step is optional. Only do it if you want the automatic wheel turning. You do <strong>NOT</strong> need to implement this step
-to read the wheel input as it is already included in the Pythong script. For further information on implementation, click <a href="https://github.com/nightmode/logitech-g29">here</a>. </p>
+to read the wheel input as it is already included in the Python script. For further information on implementation, click <a href="https://github.com/nightmode/logitech-g29">here</a>. </p>
 <p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>. <br />
 <strong>2.</strong> Start the NodeJS express server by running <code>node angle_phy.js</code>. <br />
 <strong>3.</strong> You should be seeing a list of wheel information followed by <strong>wheel ready</strong>. 
 If you encounter an error, your wheel might not be connected or your driver is not update to date. <br /> 
 <strong>4.</strong> Make sure the server is running before executing any related python scripts.</p>
 <h3 id="set-up-the-flask-server-optional">Set up the Flask Server (Optional)</h3>
-<p>This step is optional. However, not doing it would result in no animation inside the vehicle.</p>
+<p>This step is optional. However, not doing it will result in no animation inside the vehicle.</p>
 <p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>. <br />
 <strong>2.</strong> Start the server by running <code>python angle_sim.py</code>. <br />
 <strong>3.</strong> You should be seeing a warning message followed by the server information. <br />
@@ -159,7 +159,7 @@ while the simulation is <strong>NOT</strong> running.</p>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../dep_installation/" class="btn btn-neutral float-left" title="Dependencies Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../host_client_config/" class="btn btn-neutral float-right" title="Host and Client on Two Machines">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../server_client_config/" class="btn btn-neutral float-right" title="Server and Client on Two Machines">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -189,7 +189,7 @@ while the simulation is <strong>NOT</strong> running.</p>
       <span><a href="../dep_installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../host_client_config/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../server_client_config/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

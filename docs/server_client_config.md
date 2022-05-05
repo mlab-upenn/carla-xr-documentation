@@ -38,3 +38,8 @@ client = carla.Client(‘192.168.1.21’, 2000)
 This allows the client to actively look for an outside server
 instead of the local machine. Make sure port 2000 is not blocked by some other tasks or the windows firewall.
 
+### Step 5: Flask Server
+If the above steps were implemented correctly, the Flask server should simutaneously host two sites at
+`127.0.0.1:5000` and `192.168.1.20:5000`. However, if the data request fails, manually check these sites
+in your browser.
+

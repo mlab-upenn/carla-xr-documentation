@@ -16,7 +16,7 @@ __5.__ The first time you play the simulation, UE4 will show a white screen for 
 
 ### Set up G29 Wheel Server (Optional)
 This step is optional. Only do it if you want the automatic wheel turning. You do __NOT__ need to implement this step
-to read the wheel input as it is already included in the Pythong script. For further information on implementation, click [here](https://github.com/nightmode/logitech-g29). 
+to read the wheel input as it is already included in the Python script. For further information on implementation, click [here](https://github.com/nightmode/logitech-g29). 
 
 __1.__ Open a new command window and navigate to directory `G29/test`. <br />
 __2.__ Start the NodeJS express server by running `node angle_phy.js`. <br />
@@ -25,7 +25,7 @@ If you encounter an error, your wheel might not be connected or your driver is n
 __4.__ Make sure the server is running before executing any related python scripts.
 
 ### Set up the Flask Server (Optional)
-This step is optional. However, not doing it would result in no animation inside the vehicle.
+This step is optional. However, not doing it will result in no animation inside the vehicle.
 
 __1.__ Open a new command window and navigate to directory `G29/test`. <br />
 __2.__ Start the server by running `python angle_sim.py`. <br />

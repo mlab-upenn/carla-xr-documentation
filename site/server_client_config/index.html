@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Host and Client on Two Machines - CARLA XR Documentation</title>
+    <title>Server and Client on Two Machines - CARLA XR Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Host and Client on Two Machines";
-        var mkdocs_page_input_path = "host_client_config.md";
+        var mkdocs_page_name = "Server and Client on Two Machines";
+        var mkdocs_page_input_path = "server_client_config.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,9 +48,9 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../dep_installation/">Dependencies Installation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../run_simulation/">Run XR Simulation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../run_simulation/">Running XR Simulation</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Host and Client on Two Machines</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Server and Client on Two Machines</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#step-1-connnect-two-machines">Step 1: Connnect Two Machines</a>
     </li>
@@ -59,6 +59,8 @@
     <li class="toctree-l2"><a class="reference internal" href="#step-3-configure-unreal-engine">Step 3: Configure Unreal Engine</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-4-configure-pythonapi">Step 4: Configure PythonAPI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-5-flask-server">Step 5: Flask Server</a>
     </li>
     </ul>
                   </li>
@@ -90,9 +92,9 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Getting Started &raquo;</li><li>Host and Client on Two Machines</li>
+          <li>Getting Started &raquo;</li><li>Server and Client on Two Machines</li>
     <li class="wy-breadcrumbs-aside">
-        <a href="https://github.com/mlab-upenn/carla-xr-documentation/edit/master/docs/host_client_config.md"
+        <a href="https://github.com/mlab-upenn/carla-xr-documentation/edit/master/docs/server_client_config.md"
           class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
@@ -139,11 +141,15 @@ Set the Listen Endpoint to be <code>192.168.1.20:2000</code>. </p>
 </code></pre>
 <p>This allows the client to actively look for an outside server
 instead of the local machine. Make sure port 2000 is not blocked by some other tasks or the windows firewall.</p>
+<h3 id="step-5-flask-server">Step 5: Flask Server</h3>
+<p>If the above steps were implemented correctly, the Flask server should simutaneously host two sites at
+<code>127.0.0.1:5000</code> and <code>192.168.1.20:5000</code>. However, if the data request fails, manually check these sites
+in your browser.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../run_simulation/" class="btn btn-neutral float-left" title="Run XR Simulation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../run_simulation/" class="btn btn-neutral float-left" title="Running XR Simulation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../preparation_and_env_setup/" class="btn btn-neutral float-right" title="Preparation and Environment Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 

@@ -52,9 +52,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#software-requirements">Software Requirements</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#install-carla-fork-of-unreal-engine-426">Install CARLA fork of Unreal Engine 4.26</a>
+    <li class="toctree-l2"><a class="reference internal" href="#python">Python</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#set-up-oculus-quest-2">Set up Oculus Quest 2</a>
+    <li class="toctree-l2"><a class="reference internal" href="#visual-studio-2019">Visual Studio 2019</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#carla-unreal-engine-426">CARLA Unreal Engine 4.26</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#carla-0913-project">CARLA 0.9.13 Project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#openxr">OpenXR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#g29-wheel">G29 Wheel</a>
     </li>
     </ul>
                   </li>
@@ -101,56 +109,81 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="dependencies-installation">Dependencies Installation</h1>
-<p>This document provides guidance for installing the CARLA fork of Unreal Engine 4.26 and other software dependencies.</p>
+<p>This document provides guidance for installing the CARLA fork of Unreal Engine 4.26 and other software dependencies.
+A large portion of it was created based on the official <a href="https://carla.readthedocs.io/en/latest/build_windows/"><strong>CARLA website</strong></a>. Our tutorial adds the ability to run CARLA in the Virtual Reality environment using the Unreal Engine 4 (UE4) and the Oculus Quest headset. Please read carefully and follow all the steps, and the installation can take anywhere from 6 to 12 hours, depending on the hardware specification.</p>
 <h2 id="hardware-requirements">Hardware Requirements</h2>
 <ul>
-<li><strong>x64 system</strong> </li>
-<li><strong>180 GB disk space</strong> </li>
-<li><strong>An adequate GPU</strong></li>
-<li><strong>Two TCP ports and good internet connection</strong> </li>
-<li><strong>Oculus Quest 2</strong></li>
-<li><strong>Logitech G29 Wheel</strong></li>
+<li><strong>x64 system.</strong>   Linux configuration is possible, but this instruction only covers Windows. </li>
+<li><strong>200 GB disk space.</strong> Our customized CARLA package will take around 45 GB and the related major software installations (including UE4) will take 155 GB.</li>
+<li><strong>An adequate GPU.</strong> NVIDIA GTX 1080 TI and above is required. In order to run the simulation at optimal quality, NVIDIA RTX 3080 and above is recommended.
+                      The GPU should have at least 8 GB of dedicated memory, although 16 GB is recommended.</li>
+<li><strong>Two TCP ports.</strong> 2000 and 2001 by default. Make sure that these ports are not blocked by firewalls or any other applications.</li>
 </ul>
 <h2 id="software-requirements">Software Requirements</h2>
 <ul>
-<li><strong>Visual Studio 2019</strong>   <ul>
-<li><strong>Windows 8.1 SDK.</strong> </li>
-<li><strong>x64 Visual C++ Toolset</strong> </li>
-<li><strong>.NET framework 4.6.2</strong></li>
+<li><a href="http://gnuwin32.sourceforge.net/packages/make.htm"><strong>Make</strong></a> Install Make 3.8.1 by choosing “Complete package, except sources” from the download list. In the last step of installation, select “Download Sources”. Check your Make version by running <code>make --version</code> in a terminal. If you get the error: <em>'make' is not recognized as an internal or external command, operable program or batch file</em>, then Make is not successfully installed or added to path.</li>
+<li><a href="https://cmake.org/download/"><strong>CMake</strong></a> Install CMake using the Windows x64 Installer. Check your CMake version by running: <code>cmake --version</code> in a terminal,
+If you get the error <em>'cmake' is not recognized as an internal or external command, operable program or batch file</em>, then CMake is not successfully installed or added to path.</li>
+<li><a href="https://git-scm.com/download/win"><strong>Git</strong></a> Install Git using the 64-bit Windows Installer. Accept all defaults.</li>
+<li><a href="https://www.7-zip.org/"><strong>7Zip</strong></a> Install 7-zip using the x64 Windows Installer. Accept all defaults.</li>
 </ul>
-</li>
-<li><strong>Git</strong></li>
-<li><strong>7Zip</strong> </li>
-<li><strong>Python3 x64</strong></li>
-<li><strong>Oculus Desktop App</strong></li>
-<li><strong>OpenXR for Oculus</strong></li>
+<h2 id="python">Python</h2>
+<p><strong>1.</strong> Install <a href="https://www.python.org/downloads/release/python-3810/"><strong>Python 3.8.10</strong></a> 
+using the 64-bit Windows Installer. When prompted, add Python to system path. Check your Python version using <code>python --version</code>.</p>
+<p><strong>2.</strong> Upgrade pip and install the required dependencies.</p>
+<pre><code class="language-sh">    pip3 install --upgrade pip
+    pip3 install --user setuptools
+    pip3 install --user wheel
+</code></pre>
+<h2 id="visual-studio-2019">Visual Studio 2019</h2>
+<p>Download <a href="https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/"><strong>Visual Studio 2019</strong></a>
+       and choose <strong>Community</strong> version. Using the installer to add the following packages (will take about 20GB):</p>
+<ul>
+<li><strong>Windows 8.1 SDK (your windows version)</strong> Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.</li>
+<li><strong>x64 Visual C++ Toolset.</strong> In the Workloads section, choose Desktop development with C++. This will enable a x64 command prompt that will be used for the build. Check that it has been installed correctly by pressing the Windows button and searching for x64. Be careful not to open a x86_x64 prompt.</li>
+<li><strong>.NET framework 4.6.2.</strong> In the Workloads section, choose .NET desktop development and then in the Installation details panel on the right, select .NET Framework 
+4.6.2 development tools. This is required to build Unreal Engine.</li>
 </ul>
-<h2 id="install-carla-fork-of-unreal-engine-426">Install CARLA fork of Unreal Engine 4.26</h2>
-<p>To build the modified version of Unreal Engine:</p>
-<p><strong>1.</strong> Download the source code from <a href="https://github.com/CarlaUnreal/UnrealEngine/releases/tag/0.9.13">this release</a>.</p>
-<p><strong>2.</strong> Run the configuration scripts:</p>
+<h2 id="carla-unreal-engine-426">CARLA Unreal Engine 4.26</h2>
+<p><strong>1.</strong> Download the modified version of the Unreal Enginer from <a href="https://github.com/CarlaUnreal/UnrealEngine/releases/tag/0.9.13">here</a>. <br />
+<strong>2.</strong> Navigate into the UE4 source folder, and run the configuration scripts:</p>
 <pre><code class="language-sh">    Setup.bat
     GenerateProjectFiles.bat
 </code></pre>
-<p><strong>3.</strong> Compile the modified engine:</p>
-<blockquote>
-<ol>
+<p><strong>3.</strong> Build the Engine:</p>
+<ul>
 <li>
 <p>Open the <code>UE4.sln</code> file inside the source folder with Visual Studio 2019.</p>
 </li>
 <li>
-<p>In the build bar ensure that you have selected 'Development Editor', 'Win64' and 'UnrealBuildTool' options. Check <a href="https://docs.unrealengine.com/en-US/ProductionPipelines/DevelopmentSetup/BuildingUnrealEngine/index.html">this guide</a> if you need any help. </p>
+<p>In the build bar ensure that you have selected 'Development Editor', 'Win64' and 'UnrealBuildTool' options.</p>
 </li>
 <li>
 <p>In the solution explorer, right-click <code>UE4</code> and select <code>Build</code>.</p>
 </li>
-</ol>
-</blockquote>
-<p><strong>4.</strong> Once the solution is compiled you can open the engine to check that everything was installed correctly by launching the executable <code>Engine\Binaries\Win64\UE4Editor.exe</code>.</p>
+<li>
+<p>The build can take <strong>a few hours</strong>, depending on your hardware specification.</p>
+</li>
+<li>
+<p>Once the solution is compiled you can open the engine to check that everything was installed correctly by launching the executable <code>Engine\Binaries\Win64\UE4Editor.exe</code>.</p>
+</li>
+</ul>
 <p>If the installation was successful, this should be recognised by Unreal Engine's version selector. You can check this by right-clicking on any <code>.uproject</code> file and selecting <code>Switch Unreal Engine version</code>. You should see a pop-up showing <code>Source Build at PATH</code> where PATH is the installation path that you have chosen. If you can not see this selector or the <code>Generate Visual Studio project files</code> when you right-click on <code>.uproject</code> files, something went wrong with the Unreal Engine installation and you will likely need to reinstall it correctly.</p>
-<h2 id="set-up-oculus-quest-2">Set up Oculus Quest 2</h2>
-<p><strong>1.</strong> Follow <a href="https://support.oculus.com/articles/headsets-and-accessories/oculus-link/connect-link-with-quest-2/">this document</a> to enable Oculus Link.</p>
-<p><strong>2.</strong> Follow <a href="https://developer.oculus.com/blog/openxr-for-oculus/">this blog</a> to set up OpenXR for Oculus.</p>
+<h2 id="carla-0913-project">CARLA 0.9.13 Project</h2>
+<p><strong>1.</strong> Download the project source code from <a href="https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ"><strong>here</strong></a>.
+Unzip the project into a standalone directory. <br />
+<strong>2.</strong> Navigate into the CARLA project directory and run command <code>make launch</code> in the <strong>x64 Native Tools Command Prompt for Visual Studio 2019</strong>. <br />
+<strong>3.</strong> After a few minutes, you will see "launching unreal editor" and the UE4 window will pop up. During the loading process, the UE4 window will stop at 95% progress for approximately <strong>1-2 hours</strong>. Be patient and let the process finish. After successfully entering the UE4, you will see "Building Mesh Distance Fields" and "Compiling Shaders", which can also take <strong>1-2 hours</strong> to finish.</p>
+<h2 id="openxr">OpenXR</h2>
+<p><strong>1.</strong> Install Windows <a href="https://store.facebook.com/quest/setup/"><strong>Oculus Application</strong></a> and accept all defaults. <br />
+<strong>2.</strong> Login with your Oculus account or sign up for one. <br />
+<strong>3.</strong> Configure and Install the OpenXR Runtime for Oculus follwing the instructions in <a href="https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/XRDevelopment/OpenXR/openxr_prerequisites/"><strong>here</strong></a>. Follow the instructions in the Oculus section. <br />
+<strong>4.</strong> Turn on the Oculus application, go to <strong>Settings</strong> &gt; <strong>General</strong>. Under <strong>OpenXR Runtime</strong>, make sure "Oculus is set as the active OpenXR Runtime".</p>
+<h2 id="g29-wheel">G29 Wheel</h2>
+<p><strong>1.</strong> Download the wheel support package from <a href="www.google.com">here</a> and extract it into a folder called G29. <br />
+<strong>2.</strong> Download and install Logitech G Hub from <a href="https://www.logitechg.com/en-us/innovation/g-hub.html">here</a>. <br />
+<strong>3.</strong> Plug the wheel into the computer, and make sure the wheel self calibrates to the center. <br />
+<strong>4.</strong> If something goes wrong, check for wheel conenction in the Logitech G Hub.</p>
               
             </div>
           </div><footer>

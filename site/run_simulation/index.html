@@ -50,29 +50,17 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Run XR Simulation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#download-the-project">Download the Project</a>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-the-oculus-headset">Set up the Oculus Headset</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-the-vr-simulation">Run the VR simulation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#set-up-the-oculus-headset-before-setting-up-unreal-engine">Set up the Oculus Headset (before setting up Unreal Engine)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-the-unreal-engine">Set up the Unreal Engine</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set-up-the-unreal-engine">Set up the Unreal Engine</a>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-g29-wheel-server-optional">Set up G29 Wheel Server (Optional)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set-up-the-flask-server">Set up the Flask Server</a>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-the-flask-server-optional">Set up the Flask Server (Optional)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set-up-the-g29-wheel">Set up the G29 Wheel</a>
+    <li class="toctree-l2"><a class="reference internal" href="#run-the-scenario-demo">Run the Scenario Demo</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#set-up-the-scenario-demo-for-vr">Set up the Scenario Demo for VR</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-the-mr-simulation">Run the MR simulation</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#set-up-the-scenario-demo-for-mr">Set up the Scenario Demo for MR</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#calibration">Calibration</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#drivers-view-calibration-optional">Driver's View Calibration (Optional)</a>
     </li>
     </ul>
                   </li>
@@ -116,54 +104,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="run-simulation">Run Simulation</h1>
-<p>This document provides guidance for downloading, setting up, and running the simulation.</p>
-<h2 id="download-the-project">Download the Project</h2>
-<p>The project can be downloaded from <a href="https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ?usp=sharing">this Google Drive folder</a>. Due to the enormous size of the project, it cannot be hosted on Github. You can use 7Zip to unzip the project.</p>
-<h2 id="run-the-vr-simulation">Run the VR simulation</h2>
-<h3 id="set-up-the-oculus-headset-before-setting-up-unreal-engine">Set up the Oculus Headset (before setting up Unreal Engine)</h3>
-<p><strong>1.</strong> Turn on Oculus desktop program. </p>
-<p><strong>2.</strong> Turn on the headset.</p>
-<p><strong>3.</strong> Allow device to access data from the computer using the controller.</p>
-<p><strong>4.</strong> If Guardian is not found, create guardian using the controller.</p>
-<p><strong>5.</strong> Enable Oculus Link.</p>
+                <h2 id="running-the-vr-simulation">Running the VR simulation</h2>
+<h3 id="set-up-the-oculus-headset">Set up the Oculus Headset</h3>
+<p><strong>1.</strong> Connect your headset to the computer using a USB-C wire and turn on the headset. <br />
+<strong>2.</strong> When prompted, <strong>Allow</strong> device to access data from the computer. <br />
+<strong>3.</strong> If Guardian is not found, create Guardian using the controller. <br />
+<strong>4.</strong> Turn on Oculus desktop program, go to <strong>device</strong> and make sure the headset is connected. <br />
+<strong>5.</strong> Enable Oculus Link, use this <a href="https://www.youtube.com/watch?v=IQrPiTlsU9I">video</a> as a reference. <br />
+<strong>6.</strong> <strong>Important</strong>: Oculus link must be enabled before turning on the Unreal Engine, or you will not be able to click the <strong>Run Simulation</strong> button.</p>
 <h3 id="set-up-the-unreal-engine">Set up the Unreal Engine</h3>
-<p><strong>1.</strong> Navigate to Carla_XR\Unreal\CarlaUE4, double click <code>CarlaUE4.uproject</code> to launch the Unreal project.</p>
-<p><strong>2.</strong> The Oculus link must be enabled before starting the Unreal Engine.</p>
-<p><strong>3.</strong> The Oculus app must show active connection before starting the Unreal Engine.</p>
-<p><strong>4.</strong> Navigate to “Content” – “Carla” – “Maps” and select the map(in bottom left of Unreal Engine) after launching the project.</p>
-<p><strong>5.</strong> There are 3 scenarios being adjusted for this project, which are Rural(Town07), City(Town10HD), and Highway(Town05).</p>
-<h3 id="set-up-the-flask-server">Set up the Flask Server</h3>
-<p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>.</p>
-<p><strong>2.</strong> Run the server:</p>
-<pre><code class="language-sh">python angle_sim.py
-</code></pre>
-<p><strong>3.</strong> The server must be running before executing any simulation.</p>
-<h3 id="set-up-the-g29-wheel">Set up the G29 Wheel</h3>
-<p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>.</p>
-<p><strong>2.</strong> Run the server :</p>
-<pre><code class="language-sh">nodepython angle_phy.jspy
-</code></pre>
-<p><strong>3.</strong> The wheel script must be running before executing any simulation</p>
-<h3 id="set-up-the-scenario-demo-for-vr">Set up the Scenario Demo for VR</h3>
-<p><strong>1.</strong> Navigate to <code>Carla\PythonAPI\scenes</code></p>
-<p><strong>2.</strong> Click play on the Unreal scene</p>
-<p><strong>3.</strong> Select VR Mode using spacebar</p>
-<p><strong>4.</strong> Run the script</p>
-<p><strong>5.</strong> Always close the Python script before exiting Unreal scene</p>
-<h2 id="run-the-mr-simulation">Run the MR simulation</h2>
-<p>Most procedures for running the MR simulation is the same as VR. Instead of using Oculus Link, you should compile the Unity project under <code>Unity\CARLAUnityMR</code> folder as <code>Apk</code>, and install it on Quest2.</p>
+<p><strong>1.</strong> Navigate to your CARLA project source foler, and then \Unreal\CarlaUE4, double click <strong>CarlaUE4.uproject</strong> to launch the project. <br />
+<strong>2.</strong> Inside Unreal Editor, navigate to <code>Content\Carla\Maps</code> and double click to select the map (Map7 is used by default for the sample PythonAPI). <br />
+<strong>3.</strong> Inside the Unreal Editor, click <strong>&gt;&gt;</strong> on the top right corner to expand the toolbar, choose <strong>Active Play Mode &gt; VR Preview</strong>. <br />
+<strong>4.</strong> Click <strong>Play</strong> to start simulation, you should be able to see the animation in your Oculus headset. Select VR Mode using spacebar <br />
+<strong>5.</strong> The first time you play the simulation, UE4 will show a white screen for a few minutes.</p>
+<h3 id="set-up-g29-wheel-server-optional">Set up G29 Wheel Server (Optional)</h3>
+<p>This step is optional. Only do it if you want the automatic wheel turning. You do <strong>NOT</strong> need to implement this step
+to read the wheel input as it is already included in the Pythong script. For further information on implementation, click <a href="https://github.com/nightmode/logitech-g29">here</a>. </p>
+<p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>. <br />
+<strong>2.</strong> Start the NodeJS express server by running <code>node angle_phy.js</code>. <br />
+<strong>3.</strong> You should be seeing a list of wheel information followed by <strong>wheel ready</strong>. 
+If you encounter an error, your wheel might not be connected or your driver is not update to date. <br /> 
+<strong>4.</strong> Make sure the server is running before executing any related python scripts.</p>
+<h3 id="set-up-the-flask-server-optional">Set up the Flask Server (Optional)</h3>
+<p>This step is optional. However, not doing it would result in no animation inside the vehicle.</p>
+<p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>. <br />
+<strong>2.</strong> Start the server by running <code>python angle_sim.py</code>. <br />
+<strong>3.</strong> You should be seeing a warning message followed by the server information. <br />
+<strong>4.</strong> Open page <strong>127.0.0.1:5000/get_steer</strong> in a browser to verify that the server is running.</p>
+<h3 id="run-the-scenario-demo">Run the Scenario Demo</h3>
+<p><strong>1.</strong> Navigate to <code>Carla\PythonAPI\VR_Scripts</code> <br />
+<strong>2.</strong> Run our selected python script using a terminal or an IDE. Some scripts will strictly require the wheel server and/or the Flask server to be running. <br />
+<strong>3.</strong> <strong>Important</strong>: Unreal Engine needs play the VR simulation before executing any Python script. <br />
+<strong>4.</strong> <strong>Important</strong>: Always terminate the Python script before exiting Unreal simulation.</p>
+<h3 id="drivers-view-calibration-optional">Driver's View Calibration (Optional)</h3>
+<p>The view by default it aligned to the driver's seat. However, additional calibration might be needed to adjust the view.
+To do this, open a map and type <em>init</em> in the top right search box. Click on <strong>Level Initializer</strong>. Change the offsets <em>X, Y, Z</em>
+for an adjustment in the absolute position. Currently there is no way to change the orientation. Adjustments can only be made
+while the simulation is <strong>NOT</strong> running.</p>
+<h2 id="running-the-mr-simulation">Running the MR simulation</h2>
+<p>Most steps for running the MR simulation is the same as VR. Instead of using Oculus Link, you should compile the Unity project under <code>Unity\CARLAUnityMR</code> folder as <code>Apk</code>, and install it on Quest 2.</p>
 <h3 id="set-up-the-scenario-demo-for-mr">Set up the Scenario Demo for MR</h3>
-<p><strong>1.</strong> Navigate to <code>Carla\PythonAPI\scenes</code></p>
-<p><strong>2.</strong> Click play on the Unreal scene</p>
-<p><strong>3.</strong> Open the compiled <code>CARLAUnityMR</code> App on Quest2</p>
-<p><strong>4.</strong> Open <code>NDI to Spout.exe</code> under <code>SPOUTtoNDI\bin</code></p>
-<p><strong>3.</strong> Select MR Mode using spacebar</p>
-<p><strong>4.</strong> Run the script</p>
-<p><strong>5.</strong> Always close the Python script before exiting Unreal scene</p>
-<p>Although MR is implemented, the result is undesireable.</p>
-<h3 id="calibration">Calibration</h3>
-<p>In Unreal project, type init in the top right search box. Click on Level Initializer. There are 3 offsets: X, Y Z . Change Z Increase for higher, decrease for lower.</p>
+<p><strong>1.</strong> Click play on the Unreal scene <br />
+<strong>2.</strong> Open the compiled <code>CARLAUnityMR</code> App on Quest2 <br />
+<strong>3.</strong> Open <code>NDI to Spout.exe</code> under <code>SPOUTtoNDI\bin</code> <br />
+<strong>4.</strong> Select MR Mode using spacebar <br />
+<strong>5.</strong> Navigate to <code>Carla\PythonAPI\VR_Scripts</code> and run the script <br />
+<strong>6.</strong> Always terminate the Python script before exiting Unreal simulation. <br /></p>
+<p><strong>Note</strong>: this implementation runs MR at a low quality and is not recommended to use.</p>
               
             </div>
           </div><footer>

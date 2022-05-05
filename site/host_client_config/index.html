@@ -52,17 +52,13 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Host and Client on Two Machines</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#set-up-the-oculus-headset">Set up the Oculus Headset</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-connnect-two-machines">Step 1: Connnect Two Machines</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#set-up-the-unreal-engine">Set up the Unreal Engine</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-configure-ip-address">Step 2: Configure IP Address</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#set-up-g29-wheel-server-optional">Set up G29 Wheel Server (Optional)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-configure-unreal-engine">Step 3: Configure Unreal Engine</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#set-up-the-flask-server-optional">Set up the Flask Server (Optional)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-the-scenario-demo">Run the Scenario Demo</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#drivers-view-calibration-optional">Driver's View Calibration (Optional)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-configure-pythonapi">Step 4: Configure PythonAPI</a>
     </li>
     </ul>
                   </li>
@@ -106,57 +102,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="host-and-client-on-two-machines">Host and Client on Two Machines</h2>
-<p>By default, Carla host and client run on the same machine. However, in the Virtual Reality environment,
-it may be desired to seperate the host and the client to share the computational pressure. For more 
-information on </p>
-<h3 id="set-up-the-oculus-headset">Set up the Oculus Headset</h3>
-<p><strong>1.</strong> Connect your headset to the computer using a USB-C wire and turn on the headset. <br />
-<strong>2.</strong> When prompted, <strong>Allow</strong> device to access data from the computer. <br />
-<strong>3.</strong> If Guardian is not found, create Guardian using the controller. <br />
-<strong>4.</strong> Turn on Oculus desktop program, go to <strong>device</strong> and make sure the headset is connected. <br />
-<strong>5.</strong> Enable Oculus Link, use this <a href="https://www.youtube.com/watch?v=IQrPiTlsU9I">video</a> as a reference. <br />
-<strong>6.</strong> <strong>Important</strong>: Oculus link must be enabled before turning on the Unreal Engine, or you will not be able to click the <strong>Run Simulation</strong> button.</p>
-<h3 id="set-up-the-unreal-engine">Set up the Unreal Engine</h3>
-<p><strong>1.</strong> Navigate to your CARLA project source foler, and then \Unreal\CarlaUE4, double click <strong>CarlaUE4.uproject</strong> to launch the project. <br />
-<strong>2.</strong> Inside Unreal Editor, navigate to <code>Content\Carla\Maps</code> and double click to select the map (Map7 is used by default for the sample PythonAPI). <br />
-<strong>3.</strong> Inside the Unreal Editor, click <strong>&gt;&gt;</strong> on the top right corner to expand the toolbar, choose <strong>Active Play Mode &gt; VR Preview</strong>. <br />
-<strong>4.</strong> Click <strong>Play</strong> to start simulation, you should be able to see the animation in your Oculus headset. Select VR Mode using spacebar <br />
-<strong>5.</strong> The first time you play the simulation, UE4 will show a white screen for a few minutes.</p>
-<h3 id="set-up-g29-wheel-server-optional">Set up G29 Wheel Server (Optional)</h3>
-<p>This step is optional. Only do it if you want the automatic wheel turning. You do <strong>NOT</strong> need to implement this step
-to read the wheel input as it is already included in the Pythong script. For further information on implementation, click <a href="https://github.com/nightmode/logitech-g29">here</a>. </p>
-<p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>. <br />
-<strong>2.</strong> Start the NodeJS express server by running <code>node angle_phy.js</code>. <br />
-<strong>3.</strong> You should be seeing a list of wheel information followed by <strong>wheel ready</strong>. 
-If you encounter an error, your wheel might not be connected or your driver is not update to date. <br /> 
-<strong>4.</strong> Make sure the server is running before executing any related python scripts.</p>
-<h3 id="set-up-the-flask-server-optional">Set up the Flask Server (Optional)</h3>
-<p>This step is optional. However, not doing it would result in no animation inside the vehicle.</p>
-<p><strong>1.</strong> Open a new command window and navigate to directory <code>G29/test</code>. <br />
-<strong>2.</strong> Start the server by running <code>python angle_sim.py</code>. <br />
-<strong>3.</strong> You should be seeing a warning message followed by the server information. <br />
-<strong>4.</strong> Open page <strong>127.0.0.1:5000/get_steer</strong> in a browser to verify that the server is running.</p>
-<h3 id="run-the-scenario-demo">Run the Scenario Demo</h3>
-<p><strong>1.</strong> Navigate to <code>Carla\PythonAPI\VR_Scripts</code> <br />
-<strong>2.</strong> Run our selected python script using a terminal or an IDE. Some scripts will strictly require the wheel server and/or the Flask server to be running. <br />
-<strong>3.</strong> <strong>Important</strong>: Unreal Engine needs play the VR simulation before executing any Python script. <br />
-<strong>4.</strong> <strong>Important</strong>: Always terminate the Python script before exiting Unreal simulation.</p>
-<h3 id="drivers-view-calibration-optional">Driver's View Calibration (Optional)</h3>
-<p>The view by default it aligned to the driver's seat. However, additional calibration might be needed to adjust the view.
-To do this, open a map and type <em>init</em> in the top right search box. Click on <strong>Level Initializer</strong>. Change the offsets <em>X, Y, Z</em>
-for an adjustment in the absolute position. Currently there is no way to change the orientation. Adjustments can only be made
-while the simulation is <strong>NOT</strong> running.</p>
-<h2 id="running-the-mr-simulation">Running the MR simulation</h2>
-<p>Most steps for running the MR simulation is the same as VR. Instead of using Oculus Link, you should compile the Unity project under <code>Unity\CARLAUnityMR</code> folder as <code>Apk</code>, and install it on Quest 2.</p>
-<h3 id="set-up-the-scenario-demo-for-mr">Set up the Scenario Demo for MR</h3>
-<p><strong>1.</strong> Click play on the Unreal scene <br />
-<strong>2.</strong> Open the compiled <code>CARLAUnityMR</code> App on Quest2 <br />
-<strong>3.</strong> Open <code>NDI to Spout.exe</code> under <code>SPOUTtoNDI\bin</code> <br />
-<strong>4.</strong> Select MR Mode using spacebar <br />
-<strong>5.</strong> Navigate to <code>Carla\PythonAPI\VR_Scripts</code> and run the script <br />
-<strong>6.</strong> Always terminate the Python script before exiting Unreal simulation. <br /></p>
-<p><strong>Note</strong>: this implementation runs MR at a low quality and is not recommended to use.</p>
+                <h2 id="server-and-client-on-two-machines">Server and Client on Two Machines</h2>
+<p>By default, Carla server and client run on the same machine. However, it has the ability to seperate the
+server and client as indicated <a href="https://carla.readthedocs.io/en/stable/connecting_the_client/">here</a>.
+In the Virtual Reality environment, it might be desirable to seperate the host and the client to allow each
+machine run at a smooth state.</p>
+<h3 id="step-1-connnect-two-machines">Step 1: Connnect Two Machines</h3>
+<p>Conenct the two machines with an Ethernet cable. Due to enormous data transfer rate, CAT6 and above is required.
+An USB-C port with ethernet adaptor is also feasible.</p>
+<h3 id="step-2-configure-ip-address">Step 2: Configure IP Address</h3>
+<ul>
+<li>
+<p>On the server (Unreal Engine) machine, navigate to <strong>Control Panel</strong> &gt; <strong>Network and Internet</strong> &gt; <strong>Network and Sharing Center</strong>.
+Click <strong>Ethernet</strong> &gt; <strong>Properties</strong> &gt; <strong>Internet Protocol Version 4 (TCP/IPv4)</strong>. Manually enter the IP address <code>192.168.1.21</code>,
+subnet mask <code>255.255.255.0</code>, and leave Default gateway as blank. On the bottom, manually enter the Preferred DNS server <code>8.8.8.8</code>,
+and leave the Alternate DNS server as blank.</p>
+</li>
+<li>
+<p>On the client (PythonAPI) machine, navigate to <strong>Control Panel</strong> &gt; <strong>Network and Internet</strong> &gt; <strong>Network and Sharing Center</strong>.
+Click <strong>Ethernet</strong> &gt; <strong>Properties</strong> &gt; <strong>Internet Protocol Version 4 (TCP/IPv4)</strong>. Manually enter the IP address <code>192.168.1.20</code>,
+subnet mask <code>255.255.255.0</code>, and leave Default gateway as blank. On the bottom, manually enter the Preferred DNS server <code>8.8.8.8</code>,
+and leave the Alternate DNS server as blank.</p>
+</li>
+</ul>
+<h3 id="step-3-configure-unreal-engine">Step 3: Configure Unreal Engine</h3>
+<p>Inside the UE4 Editor, on the top tool bar, click <strong>Edit</strong> &gt; <strong>Project Settings</strong>. Under <strong>Plugins</strong>, find <strong>TCP Messaging</strong>. 
+Set the Listen Endpoint to be <code>192.168.1.20:2000</code>. </p>
+<h3 id="step-4-configure-pythonapi">Step 4: Configure PythonAPI</h3>
+<p>In the PythonAPI script, find one of the following lines </p>
+<pre><code class="language-sh">client = carla.Client(‘127.0.0.1’, 2000)
+</code></pre>
+<pre><code class="language-sh">client = carla.Client(‘localhost’, 2000)
+</code></pre>
+<p>and replace it with </p>
+<pre><code class="language-sh">client = carla.Client(‘192.168.1.21’, 2000)
+</code></pre>
+<p>This allows the client to actively look for an outside server
+instead of the local machine. Make sure port 2000 is not blocked by some other tasks or the windows firewall.</p>
               
             </div>
           </div><footer>

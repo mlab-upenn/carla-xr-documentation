@@ -129,7 +129,8 @@ and leave the Alternate DNS server as blank.</p>
 </ul>
 <h3 id="step-3-configure-unreal-engine">Step 3: Configure Unreal Engine</h3>
 <p>Inside the UE4 Editor, on the top tool bar, click <strong>Edit</strong> &gt; <strong>Project Settings</strong>. Under <strong>Plugins</strong>, find <strong>TCP Messaging</strong>. 
-Set the Listen Endpoint to be <code>192.168.1.20:2000</code>. </p>
+Set the Listen Endpoint to be <code>192.168.1.20:2000</code>.</p>
+<p>Also change the address of Flask (to be discussed with Xiatao)</p>
 <h3 id="step-4-configure-pythonapi">Step 4: Configure PythonAPI</h3>
 <p>In the PythonAPI script, find one of the following lines </p>
 <pre><code class="language-sh">client = carla.Client(‘127.0.0.1’, 2000)

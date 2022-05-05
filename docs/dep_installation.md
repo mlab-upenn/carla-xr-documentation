@@ -11,7 +11,7 @@ A large portion of it was created based on the official [__CARLA website__](http
 * __Two TCP ports.__ 2000 and 2001 by default. Make sure that these ports are not blocked by firewalls or any other applications.
 
 ## Software Requirements
-* [__Make__](http://gnuwin32.sourceforge.net/packages/make.htm) Install Make 3.8.1 by choosing “Complete package, except sources” from the download list. In the last step of installation, select “Download Sources”. Check your Make version by running ```make --version``` in a terminal. If you get the error: _'make' is not recognized as an internal or external command, operable program or batch file_, then Make is not successfully installed or added to path.
+* [__Make__](http://gnuwin32.sourceforge.net/packages/make.htm) Install Make 3.8.1 by choosing "_Complete package, except sources_" from the download list. In the last step of installation, select “Download Sources”. Check your Make version by running ```make --version``` in a terminal. If you get the error: _'make' is not recognized as an internal or external command, operable program or batch file_, then Make is not successfully installed or added to path.
 * [__CMake__](https://cmake.org/download/) Install CMake using the Windows x64 Installer. Check your CMake version by running: ```cmake --version``` in a terminal,
 If you get the error _'cmake' is not recognized as an internal or external command, operable program or batch file_, then CMake is not successfully installed or added to path.
 * [__Git__](https://git-scm.com/download/win) Install Git using the 64-bit Windows Installer. Accept all defaults.

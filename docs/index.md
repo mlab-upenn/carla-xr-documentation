@@ -3,7 +3,7 @@
 
 Welcome to the CARLA XR documentation.
 
-This project adds Extended Reality functionalities on CARLA (0.9.13), an open-source autonomous driving simulator. The development platform is Windows PC with Oculus Quest2 headset. Since the development is based on OpenXR rather than the proprietary plugin from Oculus, the result should be easy to transfer to other headsets.
+This project adds Extended Reality functionalities on CARLA (0.9.13), an open-source autonomous driving simulator. The development platform is Windows PC with Oculus Quest2 headset. Since the development is based on OpenXR rather than the proprietary plugin from Oculus, the result should be easy to transfer to other headsets. This project has been developed to support the autonomous vehicle demonstration, education, and development.
 
 ## Getting Started
 [__Dependencies Installation__](dep_installation.md) — Install the CARLA fork of Unreal Engine 4.26 and other dependencies. <br>
@@ -15,7 +15,7 @@ This section contains the technical details for implementing XR functionalities 
 
 [__Preparation and Environment Setup__](preparation_and_env_setup.md) — Preparation before development based on stock CARLA. <br>
 [__VR Camera Attachment__](vr_cam_attachment.md) — Primary component to turn CARLA into VR.  <br>
-[__Vehicle Mesh Rendering and Collision__](vel_mesh_render_n_collision.md) — The separation of  high-fidelity rendering and collision handling. <br>
+[__Vehicle Mesh Rendering and Collision__](vel_mesh_render_n_collision.md) — The separation of high-fidelity rendering and collision handling. <br>
 [__Animation and User Interaction__](anim_n_interact.md) — The implementation of vehicle animation and feedback. <br>
 [__Mixed Reality__](mr.md) — The undesireable implementation of mixed reality. <br>
 

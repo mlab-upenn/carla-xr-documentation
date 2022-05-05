@@ -9,7 +9,7 @@ __6.__ __Important__: Oculus link must be enabled before turning on the Unreal E
 
 ### Set up the Unreal Engine
 __1.__ Navigate to your CARLA project source foler, and then \Unreal\CarlaUE4, double click __CarlaUE4.uproject__ to launch the project. <br />
-__2.__ Inside Unreal Editor, navigate to `Content\Carla\Maps` and double click to select the map (Map7 is used by default for the sample PythonAPI). <br />
+__2.__ Inside Unreal Editor, navigate to `Content\Carla\Maps` and double click to select the map. <br />
 __3.__ Inside the Unreal Editor, click __>>__ on the top right corner to expand the toolbar, choose __Active Play Mode > VR Preview__. <br />
 __4.__ Click __Play__ to start simulation, you should be able to see the animation in your Oculus headset. Select VR Mode using spacebar <br />
 __5.__ The first time you play the simulation, UE4 will show a white screen for a few minutes.

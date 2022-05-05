@@ -1,4 +1,8 @@
-## Running the VR simulation
+## Host and Client on Two Machines
+By default, Carla host and client run on the same machine. However, in the Virtual Reality environment,
+it may be desired to seperate the host and the client to share the computational pressure. For more 
+information on 
+
 ### Set up the Oculus Headset
 __1.__ Connect your headset to the computer using a USB-C wire and turn on the headset. <br />
 __2.__ When prompted, __Allow__ device to access data from the computer. <br />

@@ -17,10 +17,9 @@ If you get the error _'cmake' is not recognized as an internal or external comma
 * [__Git__](https://git-scm.com/download/win) Install Git using the 64-bit Windows Installer. Accept all defaults.
 * [__7Zip__](https://www.7-zip.org/) Install 7-zip using the x64 Windows Installer. Accept all defaults.
 
-## Python
+## Python Installation
 __1.__ Install [__Python 3.8.10__](https://www.python.org/downloads/release/python-3810/) 
-using the 64-bit Windows Installer. When prompted, add Python to system path. Check your Python version using ```python --version```.
-
+using the 64-bit Windows Installer. When prompted, add Python to system path. Check your Python version using ```python --version```. <br />
 __2.__ Upgrade pip and install the required dependencies.
 ```sh
     pip3 install --upgrade pip
@@ -58,11 +57,19 @@ __3.__ Build the Engine:
 
 If the installation was successful, this should be recognised by Unreal Engine's version selector. You can check this by right-clicking on any `.uproject` file and selecting `Switch Unreal Engine version`. You should see a pop-up showing `Source Build at PATH` where PATH is the installation path that you have chosen. If you can not see this selector or the `Generate Visual Studio project files` when you right-click on `.uproject` files, something went wrong with the Unreal Engine installation and you will likely need to reinstall it correctly.
 
-## CARLA 0.9.13 Project
+## CARLA 0.9.12 Project
 __1.__ Download the project source code from [__here__](https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ).
 Unzip the project into a standalone directory. <br />
 __2.__ Navigate into the CARLA project directory and run command `make launch` in the __x64 Native Tools Command Prompt for Visual Studio 2019__. <br />
 __3.__ After a few minutes, you will see "launching unreal editor" and the UE4 window will pop up. During the loading process, the UE4 window will stop at 95% progress for approximately __1-2 hours__. Be patient and let the process finish. After successfully entering the UE4, you will see "Building Mesh Distance Fields" and "Compiling Shaders", which can also take __1-2 hours__ to finish.
+
+## Python Carla Dependencies
+Open a terminal and navigate to the Carla project directory __/PythonAPI/examples__. Run the following command to install the dependencies.
+```sh
+    pip install -r requirements.txt
+    pip install carla==0.9.12
+    pip install networkx
+``` 
 
 ## OpenXR
 __1.__ Install Windows [__Oculus Application__](https://store.facebook.com/quest/setup/) and accept all defaults. <br />

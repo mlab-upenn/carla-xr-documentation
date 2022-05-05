@@ -56,11 +56,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#step-2-configure-ip-address">Step 2: Configure IP Address</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-3-configure-unreal-engine">Step 3: Configure Unreal Engine</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-configure-unreal-engine-server">Step 3: Configure Unreal Engine (Server)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-4-configure-pythonapi">Step 4: Configure PythonAPI</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-enable-oculus-link-server">Step 4: Enable Oculus Link (Server)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#step-5-flask-server">Step 5: Flask Server</a>
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-configure-pythonapi-client">Step 4: Configure PythonAPI (Client)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-5-flask-server-client">Step 5: Flask Server (Client)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-6-g29-wheel-client">Step 6: G29 Wheel (Client)</a>
     </li>
     </ul>
                   </li>
@@ -105,10 +109,12 @@
             <div class="section" itemprop="articleBody">
               
                 <h2 id="server-and-client-on-two-machines">Server and Client on Two Machines</h2>
-<p>By default, Carla server and client run on the same machine. However, it has the ability to seperate the
-server and client as indicated <a href="https://carla.readthedocs.io/en/stable/connecting_the_client/">here</a>.
-In the Virtual Reality environment, it might be desirable to seperate the host and the client to allow each
-machine run at a smooth state.</p>
+<p>By default, Carla server and client run on the same machine. However, due to the convoluted nature of the
+Virtual Reality environment, it is highly recommended that the server and the client being seperated on two
+machines. For more information on Carla server and client, check <a href="https://carla.readthedocs.io/en/stable/connecting_the_client/">here</a>.</p>
+<p>In our implementation, the server machine is responsible for: hosting Unreal Engine and the Carla project, connecting
+the Oculus Quest headset and rendering VR animation. The client machine is responsible for: hosting the Flask server,
+controlling the G29 wheel, and running the PythonAPI. For more information, refer to our <a href="../run_simulation/">Running XR Simulation</a> page.</p>
 <h3 id="step-1-connnect-two-machines">Step 1: Connnect Two Machines</h3>
 <p>Conenct the two machines with an Ethernet cable. Due to enormous data transfer rate, CAT6 and above is required.
 An USB-C port with ethernet adaptor is also feasible.</p>
@@ -127,11 +133,16 @@ subnet mask <code>255.255.255.0</code>, and leave Default gateway as blank. On t
 and leave the Alternate DNS server as blank.</p>
 </li>
 </ul>
-<h3 id="step-3-configure-unreal-engine">Step 3: Configure Unreal Engine</h3>
+<h3 id="step-3-configure-unreal-engine-server">Step 3: Configure Unreal Engine (Server)</h3>
 <p>Inside the UE4 Editor, on the top tool bar, click <strong>Edit</strong> &gt; <strong>Project Settings</strong>. Under <strong>Plugins</strong>, find <strong>TCP Messaging</strong>. 
 Set the Listen Endpoint to be <code>192.168.1.20:2000</code>.</p>
-<p>Also change the address of Flask (to be discussed with Xiatao)</p>
-<h3 id="step-4-configure-pythonapi">Step 4: Configure PythonAPI</h3>
+<p>Inside the UE4 Editor, on the Content Browser on the bottom, navigate to <strong>Content</strong> &gt; <strong>CarConfigurator</strong> &gt; <strong>Car</strong> &gt; <strong>Blueprints</strong>.
+Double click to open <strong>BP_AudiA5_CARLA_V3</strong>. Click <strong>EventGraph</strong> on the left panel, and drag the blueprint to find <strong>Va Rest Subsystem</strong>
+on the top left section. Locate the block <strong>Call URL</strong>, and change the URL from <code>http://127.0.0.1:5000/get_steer</code> to <code>http://192.168.1.20:5000/get_steer</code>.</p>
+<h3 id="step-4-enable-oculus-link-server">Step 4: Enable Oculus Link (Server)</h3>
+<p>Connect Oculus Quest 2 headset to the server machine and enable Oculus Link. Verify that the headset
+is successfullly conencted in the Oculus desktop application and you are able to run the simulation in the Unreal Carla project.</p>
+<h3 id="step-4-configure-pythonapi-client">Step 4: Configure PythonAPI (Client)</h3>
 <p>In the PythonAPI script, find one of the following lines </p>
 <pre><code class="language-sh">client = carla.Client(‘127.0.0.1’, 2000)
 </code></pre>
@@ -142,10 +153,14 @@ Set the Listen Endpoint to be <code>192.168.1.20:2000</code>.</p>
 </code></pre>
 <p>This allows the client to actively look for an outside server
 instead of the local machine. Make sure port 2000 is not blocked by some other tasks or the windows firewall.</p>
-<h3 id="step-5-flask-server">Step 5: Flask Server</h3>
-<p>If the above steps were implemented correctly, the Flask server should simutaneously host two sites at
-<code>127.0.0.1:5000</code> and <code>192.168.1.20:5000</code>. However, if the data request fails, manually check these sites
-in your browser.</p>
+<p><strong>Note:</strong> You only need the PythonAPI folder on the client machine with related dependencies installed. You do
+not need the Carla project source code or the Unreal Engine on the client machine.</p>
+<h3 id="step-5-flask-server-client">Step 5: Flask Server (Client)</h3>
+<p>Follow instructions on Flask server from the Running XR Simulation page. If the machines were connected correctly, 
+the Flask server should simutaneously host two sites at <code>127.0.0.1:5000</code> and <code>192.168.1.20:5000</code>. 
+However, if the data request fails, manually check these sites in your browser.</p>
+<h3 id="step-6-g29-wheel-client">Step 6: G29 Wheel (Client)</h3>
+<p>Connect G29 wheel to the client machine, and follow instructions as in the Running XR Simulation.</p>
               
             </div>
           </div><footer>

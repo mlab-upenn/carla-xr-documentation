@@ -31,14 +31,15 @@ __2.__ Upgrade pip and install the required dependencies.
 Download [__Visual Studio 2019__](https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/)
        and choose __Community__ version. Using the installer to add the following packages (will take about 20GB):
 
-* __Windows 8.1 SDK (your windows version)__ Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.
+* __Windows 8.1 SDK__ Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.
 * __x64 Visual C++ Toolset.__ In the Workloads section, choose Desktop development with C++. This will enable a x64 command prompt that will be used for the build. Check that it has been installed correctly by pressing the Windows button and searching for x64. Be careful not to open a x86_x64 prompt.
 * __.NET framework 4.6.2.__ In the Workloads section, choose .NET desktop development and then in the Installation details panel on the right, select .NET Framework 
 4.6.2 development tools. This is required to build Unreal Engine.
 
 ## CARLA Unreal Engine 4.26
-__1.__ Download the modified version of the Unreal Enginer from [here](https://github.com/CarlaUnreal/UnrealEngine/releases/tag/0.9.13). <br />
-__2.__ Navigate into the UE4 source folder, and run the configuration scripts:
+__1.__ Download the modified version of the Unreal Enginer from [here](https://github.com/CarlaUnreal/UnrealEngine/releases/tag/0.9.13).
+You will need to create an [Epic Games account](https://www.epicgames.com/id/login?redirectUrl=https%3A%2F%2Fwww.epicgames.com%2Faccount%2Fconnections%3FsessionInvalidated%3Dtrue#accounts) and link it to your Github account in order to access the Unreal Engine.  <br />
+__2.__ Navigate into the Unreal Engine source folder, and run the configuration scripts:
 ```sh
     Setup.bat
     GenerateProjectFiles.bat

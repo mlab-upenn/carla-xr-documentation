@@ -143,14 +143,15 @@ using the 64-bit Windows Installer. When prompted, add Python to system path. Ch
 <p>Download <a href="https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/"><strong>Visual Studio 2019</strong></a>
        and choose <strong>Community</strong> version. Using the installer to add the following packages (will take about 20GB):</p>
 <ul>
-<li><strong>Windows 8.1 SDK (your windows version)</strong> Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.</li>
+<li><strong>Windows 8.1 SDK</strong> Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.</li>
 <li><strong>x64 Visual C++ Toolset.</strong> In the Workloads section, choose Desktop development with C++. This will enable a x64 command prompt that will be used for the build. Check that it has been installed correctly by pressing the Windows button and searching for x64. Be careful not to open a x86_x64 prompt.</li>
 <li><strong>.NET framework 4.6.2.</strong> In the Workloads section, choose .NET desktop development and then in the Installation details panel on the right, select .NET Framework 
 4.6.2 development tools. This is required to build Unreal Engine.</li>
 </ul>
 <h2 id="carla-unreal-engine-426">CARLA Unreal Engine 4.26</h2>
-<p><strong>1.</strong> Download the modified version of the Unreal Enginer from <a href="https://github.com/CarlaUnreal/UnrealEngine/releases/tag/0.9.13">here</a>. <br />
-<strong>2.</strong> Navigate into the UE4 source folder, and run the configuration scripts:</p>
+<p><strong>1.</strong> Download the modified version of the Unreal Enginer from <a href="https://github.com/CarlaUnreal/UnrealEngine/releases/tag/0.9.13">here</a>.
+You will need to create an <a href="https://www.epicgames.com/id/login?redirectUrl=https%3A%2F%2Fwww.epicgames.com%2Faccount%2Fconnections%3FsessionInvalidated%3Dtrue#accounts">Epic Games account</a> and link it to your Github account in order to access the Unreal Engine.  <br />
+<strong>2.</strong> Navigate into the Unreal Engine source folder, and run the configuration scripts:</p>
 <pre><code class="language-sh">    Setup.bat
     GenerateProjectFiles.bat
 </code></pre>

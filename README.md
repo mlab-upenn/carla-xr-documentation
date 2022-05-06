@@ -1,4 +1,4 @@
-###
+#
 __CARLA XR DOCUMENTATION__
 
 This project is part of the greater effort of the Drive Right Project held collectivelly by the University of Pennsylvania and Carnegie Mellon University, and the purpose is for safe autonomous vehicle education, demonstration, and development.

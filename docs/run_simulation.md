@@ -33,8 +33,8 @@ __3.__ You should be seeing a warning message followed by the server information
 __4.__ Open page __127.0.0.1:5000/get_steer__ in a browser to verify that the server is running.
 
 ### Run the Scenario Demo
-__1.__ Navigate to `Carla\PythonAPI\VR_Scripts` <br />
-__2.__ Run our selected python script using a terminal or an IDE. Some scripts will strictly require the wheel server and/or the Flask server to be running. <br />
+__1.__ Navigate to `Carla_Build\PythonAPI\VR_Scripts` <br />
+__2.__ Run the selected python script using a terminal or an IDE. Some scripts will strictly require the wheel server and/or the Flask server to be running. <br />
 __3.__ __Important__: Unreal Engine needs play the VR simulation before executing any Python script. <br />
 __4.__ __Important__: Always terminate the Python script before exiting Unreal simulation.
 

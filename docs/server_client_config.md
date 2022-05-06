@@ -50,6 +50,16 @@ client = carla.Client(‘192.168.1.21’, 2000)
 This allows the client to actively look for an outside server
 instead of the local machine. Make sure port 2000 is not blocked by some other tasks or the windows firewall.
 
+If a Python script involves posting data to Flask server, you need to find the following line
+```sh
+url = http://127.0.0.1:5000/set_steer
+```
+
+and replace it with
+```sh
+url = http://192.168.1.20:5000/set_steer
+```
+
 __Note:__ You only need the PythonAPI folder on the client machine with related dependencies installed. You do
 not need the Carla project source code or the Unreal Engine on the client machine.
 

@@ -143,7 +143,7 @@ using the 64-bit Windows Installer. When prompted, add Python to system path. Ch
 <p>Download <a href="https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/"><strong>Visual Studio 2019</strong></a>
        and choose <strong>Community</strong> version. Using the installer to add the following packages (will take about 20GB):</p>
 <ul>
-<li><strong>Windows 8.1 SDK</strong> Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.</li>
+<li><strong>Windows 8.1 SDK.</strong> Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.</li>
 <li><strong>x64 Visual C++ Toolset.</strong> In the Workloads section, choose Desktop development with C++. This will enable a x64 command prompt that will be used for the build. Check that it has been installed correctly by pressing the Windows button and searching for x64. Be careful not to open a x86_x64 prompt.</li>
 <li><strong>.NET framework 4.6.2.</strong> In the Workloads section, choose .NET desktop development and then in the Installation details panel on the right, select .NET Framework 
 4.6.2 development tools. This is required to build Unreal Engine.</li>
@@ -180,7 +180,9 @@ Unzip the project into a standalone directory. <br />
 <strong>2.</strong> Navigate into the CARLA project directory and run command <code>make launch</code> in the <strong>x64 Native Tools Command Prompt for Visual Studio 2019</strong>. <br />
 <strong>3.</strong> After a few minutes, you will see "launching unreal editor" and the UE4 window will pop up. During the loading process, the UE4 window will stop at 95% progress for approximately <strong>1-2 hours</strong>. Be patient and let the process finish. After successfully entering the UE4, you will see "Building Mesh Distance Fields" and "Compiling Shaders", which can also take <strong>1-2 hours</strong> to finish.</p>
 <h2 id="python-carla-dependencies">Python Carla Dependencies</h2>
-<p>Open a terminal and navigate to the Carla project directory <strong>/PythonAPI/examples</strong>. Run the following command to install the dependencies.</p>
+<p>Download our customized Python package from <a href="https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ"><strong>here</strong></a>,
+and use it to replace the default package inside the Carla project. Open a terminal and navigate to <strong>/PythonAPI/examples</strong>. 
+Run the following command to install the dependencies.</p>
 <pre><code class="language-sh">    pip install -r requirements.txt
     pip install carla==0.9.12
     pip install networkx
@@ -191,10 +193,12 @@ Unzip the project into a standalone directory. <br />
 <strong>3.</strong> Configure and Install the OpenXR Runtime for Oculus follwing the instructions in <a href="https://docs.unrealengine.com/4.26/en-US/SharingAndReleasing/XRDevelopment/OpenXR/openxr_prerequisites/"><strong>here</strong></a>. Follow the instructions in the Oculus section. <br />
 <strong>4.</strong> Turn on the Oculus application, go to <strong>Settings</strong> &gt; <strong>General</strong>. Under <strong>OpenXR Runtime</strong>, make sure "Oculus is set as the active OpenXR Runtime".</p>
 <h2 id="g29-wheel">G29 Wheel</h2>
-<p><strong>1.</strong> Download the wheel support package from <a href="www.google.com">here</a> and extract it into a folder called G29. <br />
+<p><strong>1.</strong> Download the wheel support package from <a href="https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ">here</a>
+and extract it into a folder called G29. <br />
 <strong>2.</strong> Download and install Logitech G Hub from <a href="https://www.logitechg.com/en-us/innovation/g-hub.html">here</a>. <br />
 <strong>3.</strong> Plug the wheel into the computer, and make sure the wheel self calibrates to the center. <br />
-<strong>4.</strong> If something goes wrong, check for wheel conenction in the Logitech G Hub.</p>
+<strong>4.</strong> You can use Logitech G Hub to adjust the centering force and friction of the wheel.  <br />
+<strong>5.</strong> If something goes wrong, check for wheel conenction in the Logitech G Hub.</p>
               
             </div>
           </div><footer>

@@ -31,7 +31,7 @@ __2.__ Upgrade pip and install the required dependencies.
 Download [__Visual Studio 2019__](https://developerinsider.co/download-visual-studio-2019-web-installer-iso-community-professional-enterprise/)
        and choose __Community__ version. Using the installer to add the following packages (will take about 20GB):
 
-* __Windows 8.1 SDK__ Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.
+* __Windows 8.1 SDK.__ Select it in the Installation details section on the right or go to the Indivdual Components tab and look under the SDKs, libraries, and frameworks heading.
 * __x64 Visual C++ Toolset.__ In the Workloads section, choose Desktop development with C++. This will enable a x64 command prompt that will be used for the build. Check that it has been installed correctly by pressing the Windows button and searching for x64. Be careful not to open a x86_x64 prompt.
 * __.NET framework 4.6.2.__ In the Workloads section, choose .NET desktop development and then in the Installation details panel on the right, select .NET Framework 
 4.6.2 development tools. This is required to build Unreal Engine.
@@ -65,7 +65,9 @@ __2.__ Navigate into the CARLA project directory and run command `make launch` i
 __3.__ After a few minutes, you will see "launching unreal editor" and the UE4 window will pop up. During the loading process, the UE4 window will stop at 95% progress for approximately __1-2 hours__. Be patient and let the process finish. After successfully entering the UE4, you will see "Building Mesh Distance Fields" and "Compiling Shaders", which can also take __1-2 hours__ to finish.
 
 ## Python Carla Dependencies
-Open a terminal and navigate to the Carla project directory __/PythonAPI/examples__. Run the following command to install the dependencies.
+Download our customized Python package from [__here__](https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ),
+and use it to replace the default package inside the Carla project. Open a terminal and navigate to __/PythonAPI/examples__. 
+Run the following command to install the dependencies.
 ```sh
     pip install -r requirements.txt
     pip install carla==0.9.12
@@ -79,7 +81,9 @@ __3.__ Configure and Install the OpenXR Runtime for Oculus follwing the instruct
 __4.__ Turn on the Oculus application, go to __Settings__ > __General__. Under __OpenXR Runtime__, make sure "Oculus is set as the active OpenXR Runtime".
 
 ## G29 Wheel
-__1.__ Download the wheel support package from [here](www.google.com) and extract it into a folder called G29. <br />
+__1.__ Download the wheel support package from [here](https://drive.google.com/drive/folders/1ay0wchAReZGwusN_fJR9NehLhK8c_jHJ)
+and extract it into a folder called G29. <br />
 __2.__ Download and install Logitech G Hub from [here](https://www.logitechg.com/en-us/innovation/g-hub.html). <br />
 __3.__ Plug the wheel into the computer, and make sure the wheel self calibrates to the center. <br />
-__4.__ If something goes wrong, check for wheel conenction in the Logitech G Hub.
+__4.__ You can use Logitech G Hub to adjust the centering force and friction of the wheel.  <br />
+__5.__ If something goes wrong, check for wheel conenction in the Logitech G Hub.

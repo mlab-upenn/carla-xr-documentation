@@ -153,6 +153,12 @@ is successfullly conencted in the Oculus desktop application and you are able to
 </code></pre>
 <p>This allows the client to actively look for an outside server
 instead of the local machine. Make sure port 2000 is not blocked by some other tasks or the windows firewall.</p>
+<p>If a Python script involves posting data to Flask server, you need to find the following line</p>
+<pre><code class="language-sh">url = http://127.0.0.1:5000/set_steer
+</code></pre>
+<p>and replace it with</p>
+<pre><code class="language-sh">url = http://192.168.1.20:5000/set_steer
+</code></pre>
 <p><strong>Note:</strong> You only need the PythonAPI folder on the client machine with related dependencies installed. You do
 not need the Carla project source code or the Unreal Engine on the client machine.</p>
 <h3 id="step-5-flask-server-client">Step 5: Flask Server (Client)</h3>

@@ -59,7 +59,7 @@ __3.__ Build the Engine:
 If the installation was successful, this should be recognised by Unreal Engine's version selector. You can check this by right-clicking on any `.uproject` file and selecting `Switch Unreal Engine version`. You should see a pop-up showing `Source Build at PATH` where PATH is the installation path that you have chosen. If you can not see this selector or the `Generate Visual Studio project files` when you right-click on `.uproject` files, something went wrong with the Unreal Engine installation and you will likely need to reinstall it correctly.
 
 ## CARLA 0.9.12 Project
-__1.__ Download `Carla_Build.7z` from [__here__](https://drive.google.com/file/d/1Y4dckD9XtP2-woj1gbF3A6h83VohqsDU/view?usp=sharing).
+__1.__ Download `Carla_Build.7z` from [__here__](https://drive.google.com/file/d/1ljIhdkUBfxoW56eP-azSTeb2CxY1wXvq/view?usp=sharing).
 Unzip the project into a standalone directory. <br />
 __2.__ Navigate into the CARLA project directory and run command `make launch` in the __x64 Native Tools Command Prompt for Visual Studio 2019__. <br />
 __3.__ After a few minutes, you will see "launching unreal editor" and the UE4 window will pop up. During the loading process, the UE4 window will stop at 95% progress for approximately __1-2 hours__. Be patient and let the process finish. After successfully entering the UE4, you will see "Building Mesh Distance Fields" and "Compiling Shaders", which can also take __1-2 hours__ to finish.

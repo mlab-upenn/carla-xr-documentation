@@ -65,7 +65,7 @@ __2.__ Navigate into the CARLA project directory and run command `make launch` i
 __3.__ After a few minutes, you will see "launching unreal editor" and the UE4 window will pop up. During the loading process, the UE4 window will stop at 95% progress for approximately __1-2 hours__. Be patient and let the process finish. After successfully entering the UE4, you will see "Building Mesh Distance Fields" and "Compiling Shaders", which can also take __1-2 hours__ to finish.
 
 ## Python Carla Dependencies
-Download `PythonAPI.7z` from [__here__](https://drive.google.com/drive/folders/1nwGbksjY806_ZF8JwIT0nkjfyxGkyRM-?usp=sharing),
+Download `PythonAPI.7z` from [__here__](https://drive.google.com/file/d/1Y4dckD9XtP2-woj1gbF3A6h83VohqsDU/view?usp=sharing),
 and use it to replace the default package inside the Carla project. Open a terminal and navigate to __/PythonAPI/examples__. 
 Run the following command to install the dependencies.
 ```sh

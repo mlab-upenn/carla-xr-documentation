@@ -1,5 +1,4 @@
-#
-__CARLA XR DOCUMENTATION__
+#__CARLA XR DOCUMENTATION__
 
 This project is part of the greater effort of the Drive Right Project held collectivelly by the University of Pennsylvania and Carnegie Mellon University, and the purpose is for safe autonomous vehicle education, demonstration, and development.
 
@@ -8,5 +7,6 @@ It also adds a self-powered G29 steering wheel & set for manual vehicle control 
 
 For more information, please visit our installation page at https://carla-xr-documentation.readthedocs.io/en/latest/.
 
-To cite this work: Z. Qiao, X. Sun, H. Loeb and R. Mangharam, "Drive Right: Shaping Public’s Trust, Understanding, and Preference Towards Autonomous Vehicles Using a Virtual Reality Driving Simulator," 2023 IEEE Intelligent Vehicles Symposium (IV), Anchorage, AK, USA, 2023, pp. 1-8, doi: 10.1109/IV55152.2023.10186710.
+# To cite this work 
+Z. Qiao, X. Sun, H. Loeb and R. Mangharam, "Drive Right: Shaping Public’s Trust, Understanding, and Preference Towards Autonomous Vehicles Using a Virtual Reality Driving Simulator," 2023 IEEE Intelligent Vehicles Symposium (IV), Anchorage, AK, USA, 2023, pp. 1-8, doi: 10.1109/IV55152.2023.10186710.
 
